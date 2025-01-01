@@ -1,0 +1,63 @@
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Images/WhatsApp Image 2025-01-01 à 15.01.29_b6c13a7f.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.logo {
+    height: 64px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.service-card {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.realisation-card {
+    overflow: hidden;
+}
+
+.realisation-card img {
+    transition: transform 0.5s ease;
+}
+
+.realisation-card:hover img {
+    transform: scale(1.1);
+}
+
+.contact-form input, .contact-form textarea {
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #10B981;
+    outline: none;
+    box-shadow: 0 0 0 2px #10B981;
+}
+
+.scroll-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-button {
+    animation: float 3s ease-in-out infinite;
+}

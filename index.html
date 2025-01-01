@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Construction Bâtiment - Châtillon</title>
+    <link rel="alternate icon" href="Images/Favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans">
+    <!-- Navigation avec effet de scroll -->
+    <nav class="fixed w-full z-10 transition-all duration-300" id="mainNav">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <img src="Images/Logo_GCB-transparent.png" alt="Global Construction Bâtiment" class="logo">
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#accueil" class="text-gray-700 hover:text-green-500 transition-colors duration-300">Accueil</a>
+                    <a href="#services" class="text-gray-700 hover:text-green-500 transition-colors duration-300">Services</a>
+                    <a href="#realisations" class="text-gray-700 hover:text-green-500 transition-colors duration-300">Nos Réalisations</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section avec parallax -->
+    <section id="accueil" class="hero-section min-h-screen flex items-center relative">
+        <div class="max-w-6xl mx-auto px-4 text-center text-white" data-aos="fade-up">
+            <h1 class="text-6xl font-bold mb-6">Global Construction Bâtiment</h1>
+            <p class="text-2xl mb-12">Votre partenaire de confiance en construction depuis 2013</p>
+        </div>
+    </section>
+
+    <!-- Services Section avec cartes animées -->
+    <section id="services" class="py-32 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Nos Services</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-green-500 text-4xl mb-6">🏗️</div>
+                    <h3 class="text-2xl font-semibold mb-4">Maçonnerie et Carrelage</h3>
+                    <p class="text-gray-600 leading-relaxed">Construction et rénovation en maçonnerie traditionnelle, avec pose de carrelage et de revêtements pour sols et murs.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-green-500 text-4xl mb-6">🏠</div>
+                    <h3 class="text-2xl font-semibold mb-4">Rénovation intérieur</h3>
+                    <p class="text-gray-600 leading-relaxed">Aménagement et modernisation d'espaces intérieurs pour un confort et une esthétique renouvelés.</p>
+                </div>
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-green-500 text-4xl mb-6">🏢</div>
+                    <h3 class="text-2xl font-semibold mb-4">Ravalement</h3>
+                    <p class="text-gray-600 leading-relaxed">Rénovation et embellissement des façades pour un aspect neuf et durable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réalisations Section avec effet hover -->
+    <section id="realisations" class="py-32">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Nos Réalisations</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Ajout de onclick pour chaque image -->
+                <div class="realisation-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <img src="Images/IMG-20241217-WA0003.jpg" alt="Réalisation 1" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this.src)">
+                    <div class="p-6 bg-white">
+                        <h3 class="text-xl font-semibold mb-2">Rénovation complète</h3>
+                        <p class="text-gray-600">Maison individuelle à Châtillon</p>
+                    </div>
+                </div>
+                <div class="realisation-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <img src="Images/IMG-20241217-WA0001.jpg" alt="Réalisation 2" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this.src)">
+                    <div class="p-6 bg-white">
+                        <h3 class="text-xl font-semibold mb-2">Extension maison</h3>
+                        <p class="text-gray-600">Construction neuve</p>
+                    </div>
+                </div>
+                <div class="realisation-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <img src="Images/IMG-20241221-WA0005.jpg" alt="Réalisation 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this.src)">
+                    <div class="p-6 bg-white">
+                        <h3 class="text-xl font-semibold mb-2">Ravalement façade</h3>
+                        <p class="text-gray-600">Immeuble résidentiel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour l'image -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 p-4" onclick="closeModal()">
+        <div class="h-full w-full flex items-center justify-center">
+            <img id="modalImage" src="" alt="Image agrandie" style="max-height: 95vh; max-width: 95vw; object-fit: contain;">
+        </div>
+    </div>
+
+    <!-- Footer moderne -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Global Construction Bâtiment</h3>
+                    <p class="text-gray-400">Plus de 10 ans d'expertise en construction et rénovation</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Horaires Accessible</h3>
+                    <p class="text-gray-400">Accessible 7j/7 de 8h à 18h</p>
+                    <p></p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Contact</h3>
+                    <p class="text-gray-400">Tél: 06 03 05 64 77</p>
+                    <p class="text-gray-400">Email: gcbatiment@hotmail.fr</p>
+                </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2024 Global Construction Bâtiment. Tous droits réservés.</p>
+            </div>
+        </div>
+        <span class="fixed bottom-2 right-2 text-xs text-gray-500">v0.0.1</span>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
