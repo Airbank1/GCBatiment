@@ -3,39 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Construction Bâtiment - Châtillon</title>
-    <link rel="alternate icon" href="Images/Favicon.png">
+    <meta name="description" content="Global Construction Bâtiment à Châtillon - Entreprise de construction et rénovation spécialisée en maçonnerie, carrelage et ravalement depuis 2013.">
+    <meta name="robots" content="index, follow">
+    <title>Global Construction Bâtiment</title>
+    <link rel="alternate icon" href="Images/Logo.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body class="font-sans">
-    <!-- Navigation avec effet de scroll -->
+    <!-- Bouton menu mobile -->
+    <button class="menu-button md:hidden" aria-label="Menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+    </button>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu">
+        <a href="#services" class="hover:text-green-500 transition-colors duration-300">Services</a>
+        <a href="#realisations" class="hover:text-green-500 transition-colors duration-300">Nos Réalisations</a>
+        <a href="#contact" class="hover:text-green-500 transition-colors duration-300">Contact</a>
+    </div>
+
+    <!-- Navigation -->
     <nav class="fixed w-full z-10 transition-all duration-300" id="mainNav">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <img src="Images/Logo_GCB-transparent.png" alt="Global Construction Bâtiment" class="logo">
+                    <a href="#accueil" class="logo-link">
+                        <img src="Images/Logo.png" alt="Global Construction Bâtiment" class="logo main-logo">
+                        <img src="Images/Nom_transparent.png" alt="Global Construction Bâtiment" class="logo mobile-logo hidden">
+                    </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#accueil" class="text-gray-700 hover:text-green-500 transition-colors duration-300">Accueil</a>
                     <a href="#services" class="text-gray-700 hover:text-green-500 transition-colors duration-300">Services</a>
                     <a href="#realisations" class="text-gray-700 hover:text-green-500 transition-colors duration-300">Nos Réalisations</a>
+                    <a href="#contact" class="text-gray-700 hover:text-green-500 transition-colors duration-300">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section avec parallax -->
+    <!--<div id="scrollDetect"></div>-->
+
+    <!-- Hero Section -->
     <section id="accueil" class="hero-section min-h-screen flex items-center relative">
         <div class="max-w-6xl mx-auto px-4 text-center text-white" data-aos="fade-up">
-            <h1 class="text-6xl font-bold mb-6">Global Construction Bâtiment</h1>
-            <p class="text-2xl mb-12">Votre partenaire de confiance en construction depuis 2013</p>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 md:mb-6">
+                Global Construction Bâtiment
+            </h1>
+            <p class="text-lg md:text-2xl mb-8 md:mb-12">
+                Votre partenaire de confiance<br class="sm:hidden">
+                en construction depuis 2013
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#contact" 
+                   class="bg-green-500 text-white px-6 md:px-12 py-3 md:py-4 rounded-lg hover:bg-green-600 transition-all duration-300 text-base md:text-lg floating-button">
+                    Demander un devis gratuit
+                </a>
+                <a href="#contact" 
+                   class="bg-blue-500 text-white px-6 md:px-12 py-3 md:py-4 rounded-lg hover:bg-blue-600 transition-all duration-300 text-base md:text-lg floating-button">
+                    Postulez pour nous rejoindre
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section avec cartes animées -->
+    <!-- Services Section -->
     <section id="services" class="py-32 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Nos Services</h2>
@@ -59,28 +94,27 @@
         </div>
     </section>
 
-    <!-- Réalisations Section avec effet hover -->
+    <!-- Réalisations Section -->
     <section id="realisations" class="py-32">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Nos Réalisations</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Ajout de onclick pour chaque image -->
                 <div class="realisation-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <img src="Images/IMG-20241217-WA0003.jpg" alt="Réalisation 1" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this.src)">
+                    <img src="Images/IMG-20241217-WA0003.jpg" alt="Réalisation 1" class="w-full h-64 object-cover">
                     <div class="p-6 bg-white">
                         <h3 class="text-xl font-semibold mb-2">Rénovation complète</h3>
                         <p class="text-gray-600">Maison individuelle à Châtillon</p>
                     </div>
                 </div>
                 <div class="realisation-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <img src="Images/IMG-20241217-WA0001.jpg" alt="Réalisation 2" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this.src)">
+                    <img src="Images/IMG-20241217-WA0001.jpg" alt="Réalisation 2" class="w-full h-64 object-cover">
                     <div class="p-6 bg-white">
                         <h3 class="text-xl font-semibold mb-2">Extension maison</h3>
                         <p class="text-gray-600">Construction neuve</p>
                     </div>
                 </div>
                 <div class="realisation-card rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <img src="Images/IMG-20241221-WA0005.jpg" alt="Réalisation 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this.src)">
+                    <img src="Images/IMG-20241221-WA0005.jpg" alt="Réalisation 3" class="w-full h-64 object-cover">
                     <div class="p-6 bg-white">
                         <h3 class="text-xl font-semibold mb-2">Ravalement façade</h3>
                         <p class="text-gray-600">Immeuble résidentiel</p>
@@ -90,39 +124,203 @@
         </div>
     </section>
 
-    <!-- Modal pour l'image -->
-    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 p-4" onclick="closeModal()">
-        <div class="h-full w-full flex items-center justify-center">
-            <img id="modalImage" src="" alt="Image agrandie" style="max-height: 95vh; max-width: 95vw; object-fit: contain;">
+    <!-- Section Contact -->
+    <section id="contact" class="py-32 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Colonne d'informations -->
+                <div class="space-y-6" data-aos="fade-right">
+                    <h2 class="text-4xl font-bold">Contactez-Nous !</h2>
+                    <p class="text-xl text-gray-600">
+                        Vous recherchez un professionnel pour votre projet de construction ? Vous souhaitez
+                        rejoindre une équipe dynamique ? Sélectionnez votre type de demande et laissez-nous
+                        vos coordonnées, nous vous recontactons rapidement.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-lg">Accessible 7j/7 de 8h à 18h</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <span class="text-lg">06 03 05 64 77</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-lg">gcbatiment@hotmail.fr</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nouveau formulaire avec style mis à jour -->
+                <div class="bg-white rounded-xl shadow-xl p-8" data-aos="fade-left">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Prénom</label>
+                                <input type="text" name="firstName" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                    <!--placeholder="Votre prénom"-->
+                                <div class="error-message"></div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+                                <input type="text" name="lastName" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                    <!--placeholder="Votre nom"-->
+                                <div class="error-message"></div>
+                            </div>
+                        </div>
+                    
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" name="email" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                <!--placeholder="votre@email.com"-->
+                            <div class="error-message"></div>
+                        </div>
+                    
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
+                            <input type="tel" name="phone" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                <!--placeholder="06 XX XX XX XX"-->
+                            <div class="error-message"></div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Type de demande</label>
+                            <select name="requestType" 
+                                class="w-full px-4 py-2 bg-[#e9e9ed] border border-[#e5e7eb] rounded-lg">
+                                <option value="devis">Demande de devis</option>
+                                <option value="candidature">Candidature</option>
+                                <option value="publicite">Publicité</option>
+                                <option value="autre">Autre demande</option>
+                            </select>
+                        </div>
+    
+                        <div class="text-sm text-gray-600">
+                            <label class="inline-flex items-center">
+                                <input type="checkbox" required class="form-checkbox text-green-500">
+                                <span class="ml-2">
+                                    J'accepte que mes données soient utilisées pour traiter ma demande. 
+                                    <a href="#modal-mentions-legales" class="text-blue-600 underline ml-1">Mentions Légales & Protection des Données</a>
+                                </span>
+                            </label>
+                            <div class="error-message"></div>
+                        </div>
+    
+                        <button type="button" id="submitBtn" 
+                            class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-4 rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300">
+                            Rédiger votre demande
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Mentions Légales -->
+    <div id="modal-mentions-legales" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden overflow-y-auto">
+        <div class="relative w-full max-w-2xl mx-auto my-12 bg-white rounded-xl shadow-xl p-8">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <h2 class="text-3xl font-bold text-center mb-8">Mentions Légales & Protection des Données</h2>
+            <div class="space-y-6 text-gray-700">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Identité de l'éditeur</h3>
+                    <p>
+                        Global Construction Bâtiment<br>
+                        SIRET : 795 063 635 00010<br>
+                        Téléphone : 06 03 05 64 77<br>
+                        Email : gcbatiment@hotmail.fr
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Protection des Données Personnelles</h3>
+                    <p>
+                        Conformément au Règlement Général sur la Protection des Données (RGPD), 
+                        les informations recueillies sont traitées uniquement pour répondre à votre demande 
+                        de contact ou de candidature.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Vos Droits</h3>
+                    <p>
+                        Vous disposez d'un droit d'accès, de modification, de rectification 
+                        et de suppression des données vous concernant. Pour exercer ces droits, 
+                        contactez-nous par email à : gcbatiment@hotmail.fr
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Footer moderne -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-12">
+    <!-- Modale de rédaction -->
+    <div id="redactionModal" class="modal">
+        <div class="relative w-full max-w-2xl mx-auto my-12 bg-white rounded-xl shadow-xl p-8">
+            <button id="closeRedactionBtn" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <h2 class="text-3xl font-bold text-center mb-8">Rédigez votre demande</h2>
+            <div class="space-y-6">
                 <div>
-                    <h3 class="text-2xl font-semibold mb-6">Global Construction Bâtiment</h3>
-                    <p class="text-gray-400">Plus de 10 ans d'expertise en construction et rénovation</p>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Objet du Mail</label>
+                    <input type="text" id="mailSubject" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-green-500">
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">Horaires Accessible</h3>
-                    <p class="text-gray-400">Accessible 7j/7 de 8h à 18h</p>
-                    <p></p>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <textarea id="messageContent" rows="6" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-green-500 resize-none" 
+                        placeholder="Détaillez votre demande ici..."></textarea>
+                    <div class="error-message"></div>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">Contact</h3>
-                    <p class="text-gray-400">Tél: 06 03 05 64 77</p>
-                    <p class="text-gray-400">Email: gcbatiment@hotmail.fr</p>
-                </div>
-            </div>
-            <div class="mt-6 pt-4 border-t border-gray-800 text-center text-gray-400">
-                <p>&copy; 2024 Global Construction Bâtiment. Tous droits réservés.</p>
+                <button id="sendFinalBtn" 
+                    class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-4 rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-300">
+                    Envoyer ma demande
+                </button>
             </div>
         </div>
-        <span class="fixed bottom-2 right-2 text-xs text-gray-500">v0.0.1</span>
+    </div>
+
+    <!-- Modal de confirmation -->
+    <div id="confirmationModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg max-w-md w-full p-6 fade-in">
+            <div class="flex items-center justify-center mb-4 text-green-500">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+            </div>
+            <h3 class="text-lg font-medium text-center mb-2">Demande envoyée avec succès !</h3>
+            <p class="text-gray-600 text-center">Nous vous recontacterons dans les plus brefs délais.</p>
+            <button id="closeConfirmationBtn" class="mt-6 w-full py-2 px-4 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hover:from-green-600 hover:to-blue-600 transition-colors">
+                Fermer
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2025 Global Construction Bâtiment. Tous droits réservés.</p>
+            </div>
+        </div>
     </footer>
-    
+
+    <!-- Scripts -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
