@@ -1,10 +1,54 @@
-.hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Images/WhatsApp Image 2025-01-01 à 15.01.29_b6c13a7f.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+/* ============================
+   1. BASIC SETUP & RESET
+   ============================ */
+   html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
+/* ============================
+   2. SCROLLBAR STYLING
+   ============================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #cccccc, #888888);
+  border-radius: 10px;
+  border: 2px solid #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #aaaaaa, #666666);
+}
+
+/* Firefox's styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888888 #f0f0f0;
+}
+
+/* ============================
+   3. NAVIGATION & HEADER
+   ============================ */
+#mainNav {
+    z-index: 30;
+}
+
+.scroll-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Logo styling */
 .logo {
     height: 64px;
     width: auto;
@@ -15,18 +59,40 @@
     transform: scale(1.05);
 }
 
+.logo-link {
+    display: block;
+    text-decoration: none;
+}
+
+.main-logo {
+    display: block;
+}
+
+.mobile-logo {
+    display: none;
+}
+
+/* ============================
+   4. HERO SECTION
+   ============================ */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Images/Image temporel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+}
+
+/* ============================
+   5. CARDS
+   ============================ */
 .service-card {
-    transition: all 0.3s ease;
-    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.realisation-card {
-    overflow: hidden;
 }
 
 .realisation-card img {
@@ -37,27 +103,271 @@
     transform: scale(1.1);
 }
 
-.contact-form input, .contact-form textarea {
-    transition: border-color 0.3s ease;
+/* ============================
+   6. FORMS
+   ============================ */
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
 }
 
-.contact-form input:focus, .contact-form textarea:focus {
+.error-input {
+    border-color: #EF4444;
+    background-color: #FEF2F2;
+}
+
+.success-input {
     border-color: #10B981;
-    outline: none;
-    box-shadow: 0 0 0 2px #10B981;
+    background-color: #F0FDF4;
 }
 
-.scroll-nav {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+/* Select customization */
+select[name="requestType"] {
+    background-color: #e9e9ed !important;
+    border: 1px solid #e5e7eb !important;
 }
 
+select[name="requestType"]:focus {
+    box-shadow: 0 0 0 3px rgba(0,96,223,255) !important;
+}
+
+/* ============================
+   7. MODALS
+   ============================ */
+   .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    display: none;
+    overflow-y: auto;
+}
+
+.modal > div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 42rem;
+    max-height: 90vh;
+    margin: auto;
+}
+
+#modal-mentions-legales {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+#modal-mentions-legales > div {
+    position: relative;
+    max-width: 42rem;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: calc(100vh - 4rem);
+}
+
+#modal-mentions-legales > div {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#modal-mentions-legales > div::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 39;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Classe pour bloquer le défilement */
+.scroll-lock {
+    overflow: hidden !important;
+    padding-right: 8px; /* Compensation pour la disparition de la barre de défilement */
+}
+
+/* Style pour les modals avec défilement interne */
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.modal-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Style spécifique pour le modal de confirmation */
+#confirmationModal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 50;
+}
+
+#confirmationModal > div {
+    position: relative;
+    max-width: 28rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: modalFadeIn 0.3s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================
+   8. MOBILE MENU
+   ============================ */
+.menu-button {
+    display: none;
+    position: fixed;
+    right: 1.5rem;
+    top: 1.15rem;
+    z-index: 35;
+    color: #374151;
+    background: transparent;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 4rem;
+    right: 1.5rem;
+    width: 250px;
+    background: white;
+    z-index: 35;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu a {
+    display: block;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    color: #374151;
+    transition: background-color 0.2s;
+}
+
+.mobile-menu a:hover {
+    background-color: #F3F4F6;
+}
+
+/* ============================
+   9. ANIMATIONS
+   ============================ */
 @keyframes float {
-    0% { transform: translateY(0px); }
+    0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
 }
 
 .floating-button {
     animation: float 3s ease-in-out infinite;
+}
+
+@keyframes contactSectionFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-section-animate {
+    animation: contactSectionFade 1s ease forwards;
+}
+
+/* ============================
+   10. MEDIA QUERIES
+   ============================ */
+@media (max-width: 768px) {
+    .mobile-menu.active {
+        display: block;
+    }
+    
+    .menu-button {
+        display: block;
+    }
+
+    .main-logo {
+        display: none;
+    }
+    
+    .mobile-logo {
+        display: block;
+    }
+    
+    .logo {
+        height: 64px;
+    }
+}
+
+/* ============================
+   11. LEGACY BROWSER SUPPORT
+   ============================ */
+@supports (-ms-ime-align: auto) {
+    html {
+        -ms-overflow-style: none;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(180, 180, 180, 0.6);
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(120, 120, 120, 0.6);
+    }
+    
+    ::-webkit-scrollbar-thumb:active {
+        background-color: rgba(20, 20, 20, 0.8);
+    }
 }
